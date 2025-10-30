@@ -33,7 +33,7 @@ def load_data():
         X[col] = le.fit_transform(X[col])
 
     X_train, X_test, y_train, y_test = train_test_split(
-        X.values, y.values, test_size=0.2, random_state=42, stratify=y
+        X.values, y.values, test_size=0.7, random_state=42, stratify=y
     )
     return X_train, X_test, y_train, y_test
 
@@ -84,7 +84,7 @@ def optimize_random_forest():
         "obj_func": objective_function
     }
 
-    optimizer = GA.OriginalGA(epoch=5, pop_size=20)
+    optimizer = GA.OriginalGA(epoch=5, pop_size=70)
     best_agent = optimizer.solve(problem)
 
     # Access fitness and solution
